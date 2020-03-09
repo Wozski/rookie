@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name ="viewport" content ="width =device-width,initial-scale=1.0,user-scalable=no">  
+	<title>Calculator</title>
+
+	<!-- what's substring?  --> 
+	<script type="text/javascript">
+		function inset(num){
+			document.form.textview.value = document.form.textview.value+num
+		}
+		function equal(){
+			var exp = document.form.textview.value;
+			if(exp){
+			document.form.textview.value = eval(exp)
+		}
+	}
+		function clean(){
+			document.form.textview.value = "";
+
+		}
+		function back(){
+			var exp = document.form.textview.value;
+			document.form.textview.value = exp.substring(0,exp.length-1);
+
+		}
+		function color() {
+  			document.body.style.backgroundColor = "red";
+		}
+				
+	</script>
+
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.button{
+			width: 80px;
+			height: 80px;
+			font-size: 25px;
+			margin: 2px;
+			cursor: pointer;
+			background: rgb(169, 169, 169);
+			border: none;
+			color: white;
+
+		}
+		.textview
+		{
+			width: 280px;
+			margin: 20px;
+			font-size: 50px;
+			padding: 10px;
+			background-color: white;
+
+		}
+		.main{
+			position: absolute;
+			top:50%;
+			left:50%;
+			transform:translateX(-50%)translateY(-50%);
+		}
+						
+	</style>
+</head>
+
+<body style="background-color:#000bd45c">
+	<div class="main" style="background-color: white">
+
+		<form name = "form">
+			<input class="textview" name="textview">
+		</form>
+		<table>
+			<tr>
+				<td><input class="button" type="button" value="C" onclick="clean()"></td>
+				<td><input class="button" type="button" value="<" onclick="back()"></td>
+				<td><input class="button" type="button" value="/" onclick="inset('/')"></td>
+				<td><input class="button" type="button" value="x" onclick="inset('*')"></td>
+			</tr>
+			<tr>
+				<td><input class="button" type="button" value="1" onclick="inset(1)"></td>
+				<td><input class="button" type="button" value="2" onclick="inset(2)"></td>
+				<td><input class="button" type="button" value="3" onclick="inset(3)"></td>
+				<td><input class="button" type="button" value="+" onclick="inset('+')"></td>
+			</tr>
+				<td><input class="button" type="button" value="4" onclick="inset(4)"></td>
+				<td><input class="button" type="button" value="5" onclick="inset(5)"></td>
+				<td><input class="button" type="button" value="6" onclick="inset(6)"></td>
+				<td><input class="button" type="button" value="-" onclick="inset('-')"></td>
+			<tr>
+				<td><input class="button" type="button" value="7" onclick="inset(7)"></td>
+				<td><input class="button" type="button" value="8" onclick="inset(8)"></td>
+				<td><input class="button" type="button" value="9" onclick="inset(9)"></td>
+				<td rowspan=5><input class="button" style="height: 170px" type="button" value="=" onclick="equal()"></td>
+			</tr>
+			<tr>
+				<td colspan=2><input class="button" style="width: 170px" type="button" value="0" onclick="inset(0)"></td>
+				<td><input class="button" type="button" value="." onclick="inset('.')"></td>
+			</tr>
+
+
+
+		
+		</table>
+
+
+	</div>
+	
+
+	</body>
+</html>
